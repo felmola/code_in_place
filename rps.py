@@ -26,8 +26,9 @@ import random
 # Constants
 
 def main():
-    ask_user()
-    ask_machine()
+    user_decision = ask_user()
+    machine_decision = ask_machine()
+    determine_winner(user_decision, machine_decision)
 
 
 def ask_user():
@@ -40,6 +41,25 @@ def ask_machine():
     machine_decision = random.randint(1, 3)
     print("Machine input was: ", str(machine_decision))
     return machine_decision
+
+def determine_winner(user_decision, machine_decision):
+    winner = None # Tie is 0, User is 2, Machine is 3.
+    if user_decision == 1 and machine_decision == 3:
+        winner = 2
+    elif user_decision == 1 and machine_decision == 2:
+        winner = 3
+    elif user_decision == 2 and machine_decision == 1:
+        winner = 2
+    elif user_decision == 2 and machine_decision == 3:
+        winner = 3
+    elif user_decision == 3 and machine_decision == 2:
+            winner = 2
+    elif user_decision == 3 and machine_decision == 1:
+            winner = 3
+    elif user_decision == machine_decision:
+        winner = 0
+    print("The winner is", str(winner))
+    return winner
 
 
 if __name__ == '__main__':
