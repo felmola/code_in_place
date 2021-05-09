@@ -5,10 +5,23 @@ TODO: Write a description here
 
 
 # Constants
+MAX_STONES = 20
 
 
 def main():
-    pass
+    stones = MAX_STONES
+    while stones > 0:
+        print("There are", str(stones), "stones left.")
+        ask_stones = ask_user_stones()
+        print("User asked for", str(ask_stones), "stones.")
+        stones = stones - ask_stones
+        print()
+    print("There are not any more stones.")
+
+
+def ask_user_stones():
+    ask_stones = int(input("How many stones would you like to remove?"))
+    return ask_stones
 
 
 
