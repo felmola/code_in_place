@@ -3,7 +3,7 @@ This is the Ancient Game of Nim. There is an initial pile of stones. Players tak
 pile. The one that has the last turn before the stones runs out, wins the game.
 """
 # Imports
-#TODO: Remove extra prints.
+
 
 # Constants
 MAX_STONES = 20
@@ -31,13 +31,13 @@ def define_player(round):
     player = None
     if round % 2 == 0:
         player = 0
-        print("Round is", str(round))
-        print("Player is", str(player))
+        #print("Round is", str(round))
+        #print("Player is", str(player))
         return player
     else:
         player = 1
-        print("Round is", str(round))
-        print("Player is", str(player))
+        #print("Round is", str(round))
+        #print("Player is", str(player))
         return player
 
 
@@ -56,7 +56,7 @@ def ask_user_stones(player):
         ask_stones = int(input("Player 1 would you like to remove 1 or 2 stones?"))
         while not (ask_stones == 1 or ask_stones == 2):
             ask_stones = int(input("Please enter 1 or 2: "))
-    print("Player", str(player), "removed", str(ask_stones), "stones.")
+    #print("Player", str(player), "removed", str(ask_stones), "stones.")
     return ask_stones
 
 
