@@ -18,16 +18,16 @@ def main():
         ask_stones = ask_user_stones(player)
         stones = stones - ask_stones
         print()
-    print("There are not any more stones.")
+    final_statement(player)
 
 
 def ask_user_stones(player):
-    if player == 1:
-        ask_stones = int(input("Player 1 would like you to pick 1 or 2 stones:"))
+    if player == 0:
+        ask_stones = int(input("Player 2 would like you to remove 1 or 2 stones?"))
         while not (ask_stones == 1 or ask_stones == 2):
             ask_stones = int(input("Please enter 1 or 2: "))
     else:
-        ask_stones = int(input("Player 2 would like you to pick 1 or 2 stones:"))
+        ask_stones = int(input("Player 1 would like you to remove 1 or 2 stones:"))
         while not (ask_stones == 1 or ask_stones == 2):
             ask_stones = int(input("Please enter 1 or 2: "))
     print("Player", str(player), "asked the other player to remove", str(ask_stones), "stones.")
@@ -46,6 +46,14 @@ def define_player(round):
         print("Round is", str(round))
         print("Player is", str(player))
         return player
+
+
+def final_statement(player):
+    if player == 0:
+        print("Player 2 wins!")
+    else:
+        print("Player 1 wins!")
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
