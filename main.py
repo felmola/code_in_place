@@ -15,15 +15,18 @@ def main():
         print("There are", str(stones), "stones left.")
         round += 1
         player = define_player(round)
-        ask_stones = ask_user_stones()
+        ask_stones = ask_user_stones(player)
         stones = stones - ask_stones
         print()
     print("There are not any more stones.")
 
 
-def ask_user_stones():
-    ask_stones = int(input("How many stones would you like to remove?"))
-    print("User asked for", str(ask_stones), "stones.")
+def ask_user_stones(player):
+    if player == 1:
+        ask_stones = int(input("Player 1 would like you to pick 1 or 2 stones:"))
+    else:
+        ask_stones = int(input("Player 2 would like you to pick 1 or 2 stones:"))
+    print("Player", str(player), "asked the other player to remove", str(ask_stones), "stones.")
     return ask_stones
 
 def define_player(round):
