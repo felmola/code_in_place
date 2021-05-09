@@ -23,14 +23,14 @@ def main():
 
 def ask_user_stones(player):
     if player == 0:
-        ask_stones = int(input("Player 2 would like you to remove 1 or 2 stones?"))
+        ask_stones = int(input("Player 2 would you like to remove 1 or 2 stones?"))
         while not (ask_stones == 1 or ask_stones == 2):
             ask_stones = int(input("Please enter 1 or 2: "))
     else:
-        ask_stones = int(input("Player 1 would like you to remove 1 or 2 stones:"))
+        ask_stones = int(input("Player 1 would you like to remove 1 or 2 stones?"))
         while not (ask_stones == 1 or ask_stones == 2):
             ask_stones = int(input("Please enter 1 or 2: "))
-    print("Player", str(player), "asked the other player to remove", str(ask_stones), "stones.")
+    print("Player", str(player), "removed", str(ask_stones), "stones.")
     return ask_stones
 
 
@@ -50,9 +50,9 @@ def define_player(round):
 
 def final_statement(player):
     if player == 0:
-        print("Player 2 wins!")
-    else:
         print("Player 1 wins!")
+    else:
+        print("Player 2 wins!")
 
 
 # Press the green button in the gutter to run the script.
