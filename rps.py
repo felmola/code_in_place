@@ -28,7 +28,8 @@ import random
 def main():
     user_decision = ask_user()
     machine_decision = ask_machine()
-    determine_winner(user_decision, machine_decision)
+    winner = determine_winner(user_decision, machine_decision)
+    score = determine_score(winner)
 
 
 def ask_user():
@@ -41,6 +42,7 @@ def ask_machine():
     machine_decision = random.randint(1, 3)
     print("Machine input was: ", str(machine_decision))
     return machine_decision
+
 
 def determine_winner(user_decision, machine_decision):
     winner = None # Tie is 0, User is 2, Machine is 3.
@@ -60,6 +62,17 @@ def determine_winner(user_decision, machine_decision):
         winner = 0
     print("The winner is", str(winner))
     return winner
+
+
+def determine_score(winner):
+    if winner == 2:
+        score = 1
+    elif winner == 3:
+        score = -1
+    elif winner == 0:
+        score = 0
+    print("The score for round XXX is: ", str(score))
+    return score
 
 
 if __name__ == '__main__':
