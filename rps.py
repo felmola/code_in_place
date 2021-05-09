@@ -24,12 +24,17 @@ a total score. Each win is worth +1 points, each loss is worth -1
 import random
 
 # Constants
+NUM_ROUNDS = 3
 
 def main():
-    user_decision = ask_user()
-    machine_decision = ask_machine()
-    winner = determine_winner(user_decision, machine_decision)
-    score = determine_score(winner)
+    num_rounds = 0
+    while num_rounds < NUM_ROUNDS:
+        user_decision = ask_user()
+        machine_decision = ask_machine()
+        winner = determine_winner(user_decision, machine_decision)
+        score = determine_score(winner)
+        print()
+        num_rounds = num_rounds + 1
 
 
 def ask_user():
