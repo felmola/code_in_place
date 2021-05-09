@@ -14,7 +14,7 @@ rock beats scissors
 scissors beats paper
 paper beats rock.
 
-In this program a human plays against an AI. The AI choses randomly
+In this program a human plays against an AI. The AI chooses randomly
 (we promise). The game is repeated N_GAMES times and the human gets
 a total score. Each win is worth +1 points, each loss is worth -1
 """
@@ -27,14 +27,18 @@ import random
 NUM_ROUNDS = 3
 
 def main():
-    num_rounds = 0
-    while num_rounds < NUM_ROUNDS:
+    round = 0
+    final_score = 0
+    while round < NUM_ROUNDS:
         user_decision = ask_user()
         machine_decision = ask_machine()
         winner = determine_winner(user_decision, machine_decision)
-        score = determine_score(winner)
+        score = determine_score(winner, round)
+        round = round + 1
+        final_score = final_score + score
         print()
-        num_rounds = num_rounds + 1
+    print("The final score is: ", str(final_score))
+    announce_winner(final_score)
 
 
 def ask_user():
@@ -60,25 +64,34 @@ def determine_winner(user_decision, machine_decision):
     elif user_decision == 2 and machine_decision == 3:
         winner = 3
     elif user_decision == 3 and machine_decision == 2:
-            winner = 2
+        winner = 2
     elif user_decision == 3 and machine_decision == 1:
-            winner = 3
+        winner = 3
     elif user_decision == machine_decision:
         winner = 0
     print("The winner is", str(winner))
     return winner
 
 
-def determine_score(winner):
+def determine_score(winner, round):
+    round = round
     if winner == 2:
         score = 1
     elif winner == 3:
         score = -1
     elif winner == 0:
         score = 0
-    print("The score for round XXX is: ", str(score))
+    print("The score for round", str(round), "is: ", str(score))
     return score
 
+
+def announce_winner(final_score):
+    if final_score > 1:
+        print("You win :)")
+    elif final_score == 0:
+        print("Tie!")
+    elif final_score < 1:
+        print("You loose :(")
 
 if __name__ == '__main__':
     main()
