@@ -26,6 +26,7 @@ import random
 # Constants
 NUM_ROUNDS = 3
 
+
 def main():
     round = 0
     final_score = 0
@@ -37,7 +38,6 @@ def main():
         round = round + 1
         final_score = final_score + score
         print()
-    print("The final score is: ", str(final_score))
     announce_winner(final_score)
 
 
@@ -86,12 +86,14 @@ def determine_score(winner, round):
 
 
 def announce_winner(final_score):
-    if final_score > 1:
+    print("The final score is: ", str(final_score))
+    if final_score >= 1:
         print("You win :)")
     elif final_score == 0:
         print("Tie!")
-    elif final_score < 1:
+    elif final_score <= 1:
         print("You loose :(")
+
 
 if __name__ == '__main__':
     main()
