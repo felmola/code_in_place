@@ -1,6 +1,5 @@
 """
-This is the Ancient Game of Nim. There is an initial pile of stones. Players take turns to take 1 or 2 stones from the
-pile. The one that has the last turn before the stones runs out, wins the game.
+This program implements a rad image filter.
 """
 # Installs:
 # python -m pip install PIllow
@@ -10,10 +9,30 @@ pile. The one that has the last turn before the stones runs out, wins the game.
 from simpleimage import SimpleImage
 
 # Constants:
+DEFAULT_FILE = 'images/felix_the_cat.jpg'
 
 
 def main():
-    pass
+    # Get file and load image
+    filename = get_file()
+    image = SimpleImage(filename)
+
+    # Show the image before the transform
+    image.show()
+
+    # Apply the filter
+    # TODO: your code here
+
+    # Show the image after the transform
+    image.show()
+
+
+def get_file():
+    # Read image file path from user, or use the default file
+    filename = input('Enter image file (or press enter for default): ')
+    if filename == '':
+        filename = DEFAULT_FILE
+    return filename
 
 
 if __name__ == '__main__':
