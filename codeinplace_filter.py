@@ -21,10 +21,7 @@ def main():
     image.show()
 
     # Apply the filter
-    for pixel in image:
-        pixel.red = pixel.red * 1.5
-        pixel.green = pixel.green * 0.7
-        pixel.blue = pixel.blue * 1.5
+    jmage = apply_filter(image)
 
     # Show the image after the transform
     image.show()
@@ -36,6 +33,14 @@ def get_file():
     if filename == '':
         filename = DEFAULT_FILE
     return filename
+
+
+def apply_filter(image):
+    for pixel in image:
+        pixel.red = pixel.red * 1.5
+        pixel.green = pixel.green * 0.7
+        pixel.blue = pixel.blue * 1.5
+    return image
 
 
 if __name__ == '__main__':
