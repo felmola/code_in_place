@@ -16,7 +16,6 @@ CANVAS_ROWS = 2
 CANVAS_COLS = 3
 
 
-
 def main():
     # Import filename:
     filename = get_filename()
@@ -27,6 +26,14 @@ def main():
     image_height = image.height
     print(image_width, image_height)
 
+
+
+def get_filename():
+    filename = DEFAULT_FILE
+    return filename
+
+
+"""
     # Create a blank 3x2 canvas with the image:
     canvas = create_canvas(image, image_width, image_height)
     #canvas.show()
@@ -73,10 +80,7 @@ def create_filter(canvas, image_width, image_height):
     return canvas
 
 
-def get_filename():
-    filename = DEFAULT_FILE
-    return filename
-
+"""
 
 
 if __name__ == '__main__':
